@@ -8,8 +8,8 @@ RUN apk add --no-cache ca-certificates wget \
 
 # Add and Setup Caddy webserver
 RUN wget "https://github.com/caddyserver/caddy/releases/download/v2.1.1/caddy_2.1.1_linux_amd64.tar.gz" -O /caddy.tgz \
-    && mkdir caddy \
-    && tar xzf caddy.tgz -C /caddy --no-same-owner \
+    && mkdir ./caddy \
+    && tar xzf caddy.tgz -C ./caddy --no-same-owner \
     && rm -f /caddy.tgz
 
 # Add and Setup Kafka Connect UI
