@@ -12,6 +12,9 @@ RUN wget "https://github.com/caddyserver/caddy/releases/download/v2.1.1/caddy_2.
     && tar xzf caddy.tgz -C ./caddy --no-same-owner \
     && rm -f /caddy.tgz
 
+ADD /Caddyfile ./caddy/
+RUN mv /caddy/Caddy /caddy/Caddyfile.template
+
 # Add and Setup Kafka Connect UI
 ARG KAFKA_CONNECT_UI_VERSION="0.9.7"
 ARG KAFKA_CONNECT_UI_URL="https://github.com/lensesio/kafka-connect-ui/releases/download/v.${KAFKA_CONNECT_UI_VERSION}/kafka-connect-ui-${KAFKA_CONNECT_UI_VERSION}.tar.gz"
