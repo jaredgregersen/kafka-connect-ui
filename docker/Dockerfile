@@ -13,7 +13,7 @@ RUN wget "https://github.com/caddyserver/caddy/releases/download/v2.1.1/caddy_2.
     && rm -f /caddy.tgz
 
 ADD /docker/Caddyfile ./caddy/
-RUN mv /caddy/Caddy /caddy/Caddyfile.template
+RUN mv /caddy/Caddyfile /caddy/Caddyfile.template
 
 # Add and Setup Kafka Connect UI
 ARG KAFKA_CONNECT_UI_VERSION="0.9.7"
