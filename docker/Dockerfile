@@ -12,7 +12,7 @@ RUN wget "https://github.com/caddyserver/caddy/releases/download/v2.1.1/caddy_2.
     && tar xzf caddy.tgz -C ./caddy --no-same-owner \
     && rm -f /caddy.tgz
 
-ADD /Caddyfile ./caddy/
+ADD /docker/Caddyfile ./caddy/
 RUN mv /caddy/Caddy /caddy/Caddyfile.template
 
 # Add and Setup Kafka Connect UI
@@ -26,7 +26,6 @@ RUN wget "$KAFKA_CONNECT_UI_URL" -O /kafka-connect-ui.tar.gz \
     && ln -s /tmp/env.js /kafka-connect-ui/env.js
 
 # Add configuration and runtime files
-ADD /Caddyfile ./caddy/Caddyfile.template
 ADD run.sh ./
 RUN chmod +x ./run.sh
 
