@@ -23,7 +23,7 @@ RUN wget "$KAFKA_CONNECT_UI_URL" -O /kafka-connect-ui.tar.gz \
     && ln -s /tmp/env.js /kafka-connect-ui/env.js
 
 # Add configuration and runtime files
-ADD Caddyfile ./caddy/Caddyfile.template
+ADD /Caddyfile ./caddy/Caddyfile.template
 ADD run.sh ./
 RUN chmod +x ./run.sh
 
