@@ -190,6 +190,16 @@ var supportedConnectorsTemplates = [
     class: "io.confluent.connect.replicator.ReplicatorSourceConnector",
     author:'Confluent'
   },
+  {
+    name: "Debezium PostgreSQL Source",
+    type: "Source",
+    icon: "postgres.png",
+    description: "Debezium CDC for PostgreSQL",
+    color: "#3A3A3A",
+    uiEnabled: true,
+    class: "io.debezium.connector.postgresql.PostgresConnector",
+    author:'Debezium'
+  },
 
   {
     name: "Elastic Search",
