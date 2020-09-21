@@ -26,10 +26,10 @@ RUN wget "$KAFKA_CONNECT_UI_URL" -O /kafka-connect-ui.tar.gz \
     && ln -s /tmp/env.js /kafka-connect-ui/env.js
 
 # Add configuration and runtime files
-ADD /docker/run.sh ./
-RUN chmod +x ./run.sh
+ADD /docker/run.sh /
+RUN chmod +x /run.sh
 
 EXPOSE 8000
 
 # USER nobody:nogroup
-ENTRYPOINT ["./run.sh"]
+ENTRYPOINT ["/run.sh"]
