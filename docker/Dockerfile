@@ -12,8 +12,8 @@ RUN wget "https://github.com/mholt/caddy/releases/download/v0.10.11/caddy_v0.10.
     && tar xzf caddy.tgz -C ./caddy --no-same-owner \
     && rm -f /caddy.tgz
 
-ADD /docker/Caddyfile ./caddy/
-RUN mv /caddy/Caddyfile /caddy/Caddyfile.template
+#ADD /docker/Caddyfile ./caddy/
+#RUN mv /caddy/Caddyfile /caddy/Caddyfile.template
 
 # Add and Setup Kafka Connect UI
 ARG KAFKA_CONNECT_UI_VERSION="0.9.7"
@@ -26,7 +26,8 @@ RUN wget "$KAFKA_CONNECT_UI_URL" -O /kafka-connect-ui.tar.gz \
     && ln -s /tmp/env.js /kafka-connect-ui/env.js
 
 # Add configuration and runtime files
-ADD /docker/run.sh /
+ADD Caddyfile /caddy/Caddyfile.template
+ADD run.sh /
 RUN chmod +x /run.sh
 
 EXPOSE 8000
